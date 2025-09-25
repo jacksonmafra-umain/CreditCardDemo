@@ -269,7 +269,7 @@ fun CreditCardForm() {
                         cardNumber = it.filter { char -> char.isDigit() }
                     }
                 },
-                label = { Text("Card Number") },
+                label = { Text("Card Number", fontSize = 13.sp) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 visualTransformation = CreditCardVisualTransformation(cardType),
                 modifier =
@@ -283,7 +283,7 @@ fun CreditCardForm() {
             OutlinedTextField(
                 value = cardName,
                 onValueChange = { cardName = it },
-                label = { Text("Card Holder") },
+                label = { Text("Card Holder", fontSize = 13.sp) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text, capitalization = KeyboardCapitalization.Characters),
                 modifier =
                     Modifier
@@ -304,7 +304,7 @@ fun CreditCardForm() {
                             expiryDate = it.filter { char -> char.isDigit() }
                         }
                     },
-                    label = { Text("Expires (MM/YY)") },
+                    label = { Text("Expires(MM/YY)", fontSize = 13.sp) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     visualTransformation = ExpiryDateVisualTransformation(),
                     modifier =
@@ -320,7 +320,7 @@ fun CreditCardForm() {
                             cardCvv = it.filter { char -> char.isDigit() }
                         }
                     },
-                    label = { Text("CVV") },
+                    label = { Text("CVV", fontSize = 13.sp) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     visualTransformation = PasswordVisualTransformation(),
                     modifier =
