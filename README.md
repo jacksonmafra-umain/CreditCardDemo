@@ -1,5 +1,8 @@
 # Credit Card Form Demo
 
+![Credit Card Form Demo](creditcarddemo.gif)
+
+
 This project is a fully functional and animated credit card form UI built entirely with **Jetpack Compose**, Android's modern UI toolkit. It is a faithful recreation of the popular and beautifully designed Vue.js demo created by **Muhammed Erdem**.
 
 The goal of this project was to replicate the original's fluid animations, real-time updates, and overall user experience using native Android components and the declarative paradigm of Jetpack Compose.
