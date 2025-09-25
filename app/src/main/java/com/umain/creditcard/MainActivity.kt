@@ -64,22 +64,18 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.umain.creditcard.ui.theme.CreditCardDemoTheme
 
-// --- Constants ---
-
-// Card type constants
 private const val CARD_TYPE_VISA = "visa"
 private const val CARD_TYPE_AMEX = "amex"
 private const val CARD_TYPE_MASTERCARD = "mastercard"
 private const val CARD_TYPE_DISCOVER = "discover"
 private const val CARD_TYPE_UNKNOWN = "unknown"
 
-// Card masks
 private const val AMEX_CARD_MASK = "#### ###### #####"
 private const val OTHER_CARD_MASK = "#### #### #### ####"
 
-// Image URLs from the original Vue.js demo
 object CardImageUrls {
-    private const val BASE_URL = "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/"
+    private const val BASE_URL =
+        "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/"
     const val CHIP = "${BASE_URL}chip.png"
 
     fun getBackgroundUrl(id: Int) = "$BASE_URL$id.jpeg"
@@ -164,8 +160,6 @@ private fun creditCardOffsetTranslator(mask: String) =
 
         override fun transformedToOriginal(offset: Int): Int = offset - mask.take(offset).count { it != '#' }
     }
-
-// --- Main Composables ---
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -284,7 +278,11 @@ fun CreditCardForm() {
                 value = cardName,
                 onValueChange = { cardName = it },
                 label = { Text("Card Holder", fontSize = 13.sp) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text, capitalization = KeyboardCapitalization.Characters),
+                keyboardOptions =
+                    KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        capitalization = KeyboardCapitalization.Characters,
+                    ),
                 modifier =
                     Modifier
                         .fillMaxWidth()
@@ -454,7 +452,14 @@ fun CardFront(
                     Column(horizontalAlignment = Alignment.End) {
                         Text("Expires", color = Color.LightGray, fontSize = 12.sp)
                         Text(
-                            expiry.let { if (it.length >= 2) it.substring(0, 2) + "/" + it.substring(2) else it }.ifEmpty { "MM/YY" },
+                            expiry
+                                .let {
+                                    if (it.length >= 2) {
+                                        it.substring(0, 2,) + "/" + it.substring(2)
+                                    } else {
+                                        it
+                                    }
+                                }.ifEmpty { "MM/YY" },
                             color = Color.White,
                             fontSize = 16.sp,
                         )
